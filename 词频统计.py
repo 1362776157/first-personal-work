@@ -1,5 +1,6 @@
 import io
 import jieba
+import json
 txt = io.open("评论.txt", "r", encoding='utf-8').read()
 words  = jieba.lcut(txt)
 counts = {}
