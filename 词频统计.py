@@ -10,6 +10,17 @@ for word in words:
         counts[word] = counts.get(word,0) + 1
 items = list(counts.items())
 items.sort(key=lambda x:x[1], reverse=True) 
-for i in range(100):
+countList = []
+for i in range(len(items)):
+    countDict = {}
     word, count = items[i]
-    print (u"{0:<10}{1:>5}".format(word, count))
+    if count >= 10:
+        countDict['name'] = word
+        countDict['value'] = count
+        countList.append(countDict)
+# print(countList)
+data = {}
+data['data'] = countList
+print(data)
+with open('comments.json', 'w', encoding='utf-8') as f:
+    json.dump(data, f, ensure_ascii=False, indent=4)
